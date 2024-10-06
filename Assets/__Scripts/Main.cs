@@ -18,7 +18,6 @@ public class Main : MonoBehaviour
     void Awake() {
         S = this;
         bndCheck = GetComponent<BoundsCheck>();
-        print(bndCheck);
         Invoke(nameof(SpawnEnemy), 1f / enemySpawnPerSecond);
     }
 
@@ -37,7 +36,6 @@ public class Main : MonoBehaviour
         pos.x = Random.Range(xMin, xMax);
         pos.y = bndCheck.camHeight + enemyInset;
         go.transform.position = pos;
-        print("test");
 
         Invoke(nameof(SpawnEnemy), 1f / enemySpawnPerSecond);
     }
