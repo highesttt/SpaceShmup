@@ -45,7 +45,7 @@ public class Enemy_2 : Enemy {
         }
 
         float shipRot = rotCurve.Evaluate(u) * 360;
-        transform.rotation = baseRotation * Quaternion.Euler(-shipRot, 0, 0);
+        transform.rotation = baseRotation * Quaternion.Euler(-shipRot, 0, 0); 
 
         u += sinEccentricity * Mathf.Sin(u * Mathf.PI * 2);
 

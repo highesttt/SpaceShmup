@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour
 
     public Vector3 pos {
         get {
-            return (this.transform.position);
+            return this.transform.position;
         }
         set {
             this.transform.position = value;
@@ -41,9 +41,15 @@ public class Enemy : MonoBehaviour
 
     void OnCollisionEnter(Collision coll) {
         GameObject otherGO = coll.gameObject;
-        if (otherGO.GetComponent<ProjectileHero>() != null) {
+        ProjectileHero p = otherGO.GetComponent<ProjectileHero>();
+        if (p != null) {
+            if (bndCheck.isOnScreen) {
+                health -= Main.GET_WEAPON_DEFINITION(p.type).damageOnHit;
+                if (health <= 0) {
+                    Destroy(this.gameObject);
+                }
+            }
             Destroy(otherGO);
-            Destroy(gameObject);
         } else {
             print("Enemy hit by non-ProjectileHero: " + otherGO.name);
         }
