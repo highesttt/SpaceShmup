@@ -10,6 +10,7 @@ public class BlinkColorOnHit : MonoBehaviour {
     [Header("Dynamic")]
     public bool showingColor = false;
     public float blinkCompleteTime;
+    public bool ignoreOnClossionEnter = false;
 
     private Material[] materials;
     private Color[] originalColors;
@@ -32,6 +33,11 @@ public class BlinkColorOnHit : MonoBehaviour {
     }
 
     void OnCollisionEnter(Collision coll) {
+
+        if (ignoreOnClossionEnter) {
+            return;
+        }
+
         ProjectileHero p = coll.gameObject.GetComponent<ProjectileHero>();
         if (p != null) {
             if (bndCheck != null && !bndCheck.isOnScreen) {
@@ -41,7 +47,7 @@ public class BlinkColorOnHit : MonoBehaviour {
         }
     }
 
-    void SetColors() {
+    public void SetColors() {
         foreach (Material mat in materials) {
             mat.color = blinkColor;
         }
