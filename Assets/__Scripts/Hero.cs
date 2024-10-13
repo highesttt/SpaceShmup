@@ -69,7 +69,6 @@ public class Hero : MonoBehaviour
         if (enemy != null) {
             shieldLevel--;
             Destroy(go);
-            Main.HERO_DIED();
         } else if (pUp != null) {
             AbsorbPowerUp(pUp);
         } else {
@@ -103,11 +102,15 @@ public class Hero : MonoBehaviour
     }
 
     public float shieldLevel {
-        get { return (_shieldLevel); }
+        get {
+            return _shieldLevel;
+        }
         set {
             _shieldLevel = Mathf.Min(value, 4);
             if (value < 0) {
                 Destroy(this.gameObject);
+                Main.HERO_DIED();
+
             }
         }
     }
