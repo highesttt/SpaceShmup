@@ -676,7 +676,7 @@ MonoBehaviour:
     damagePerSec: 0
     delayBetweenShots: 0.65
     velocity: 50
-  powerUpFrequency: 01000000010000000200000006000000
+  powerUpFrequency: 0100000001000000020000000600000004000000
 --- !u!114 &963194231
 MonoBehaviour:
   m_ObjectHideFlags: 0
