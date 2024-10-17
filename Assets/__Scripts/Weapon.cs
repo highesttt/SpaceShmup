@@ -111,6 +111,7 @@ public class Weapon : MonoBehaviour {
 
         switch (type) {
             case eWeaponType.blaster:
+            case eWeaponType.missile:
                 p = MakeProjectile();
                 p.vel = vel;
                 break;
